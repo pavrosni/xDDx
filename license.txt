@@ -1,0 +1,32 @@
+xDDx End User License Agreement (“EULA”)
+
+User, through clicking acceptance of the EULA for the xDDx software (the “Software”),
+hereby accepts, a restricted, non-exclusive, non-transferable, and revocable license to use the
+Software for personal, noncommercial use only. Commercial use of the Software requires a
+separately executed written license agreement. Permission is granted, free of charge, to use
+the Software, but you may not copy, modify, merge, publish, distribute, sublicense, post
+online for third party access, and/or sell copies of the Software.
+
+Software includes all software and any accompanying materials.
+
+The Software is licensed, not sold, to you, and you hereby acknowledge that no title or
+ownership in the Software is being transferred or assigned and this Agreement should not be
+construed as a sale of any rights in the Software. University of Washington retains all right,
+title, and interest to the Software, including, but not limited to, all copyrights, trademarks,
+trade secrets, trade names, proprietary rights, patents, titles, computer codes, audiovisual
+effects, themes, characters, character names, stories, dialog, settings, artwork, sounds effects,
+musical works, and moral rights.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+This EULA may be periodically updated and the current version will be posted at https://github.com/pavrosni/xDDx
+
+Your continued use of the Software after a revised EULA has been posted constitutes
+your acceptance of its terms.
