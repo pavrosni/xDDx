@@ -1,6 +1,6 @@
 # xDDx: Numerical Toolbox for Ultrasound Transducer Characterization and Diagnostics
 
-For a quick start, all toolbox files are stored in **xDDx.zip**, available on the [releases page](https://github.com/pavrosni/xDDx/releases) in the **Assets** drop-down list below the release notes.
+For a quick start, all toolbox files are stored in [**xDDx.zip**](https://github.com/pavrosni/xDDx/releases/download/v.1.0.0-alpha/xDDx.zip), available on the releases page in the **Assets** drop-down list below the release notes.
 
 ## Overview
 xDDx is an open access transducer characterization toolbox for use in MATLAB or Octave on Windows computers. It consists of two parts. 
