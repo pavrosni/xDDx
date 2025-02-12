@@ -50,4 +50,4 @@ and the acoustic holography paper:
 
 > O. A. Sapozhnikov, S. A. Tsysar, V. A. Khokhlova, and W. Kreider, "Acoustic holography as a metrological tool for characterizing medical ultrasound sources and fields," _The Journal of the Acoustical Society of America_, vol. 138, no. 3. Acoustical Society of America (ASA), pp. 1515–1532, Sep. 01, 2015.
 
-General license information is available in `xDDx\license.txt`
+General license information is available in `license.txt`
