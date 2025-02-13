@@ -11,7 +11,7 @@ The second part, **Simulation**, utilizes the same projection algorithm as the f
 
 The core algorithm is based on the Rayleigh integral implemented in C++ executables. The toolbox was developed in MATLAB and includes both a scripting interface and a graphical user interface (GUI) as a wrapper around the C++ executables. The xDDx algorithms were developed in two versions: for compute unified device architecture (CUDA-compatible graphics processing units – GPUs), and for central processing units (CPUs). The algorithms were specifically optimized for speed and can be used both for post-processing of planar scan data into holograms and for field projection calculations.
 
-A detailed description of the toolbox’s capabilities is given in the xDDx User Manual and the xDDx publication:
+A detailed description of the toolbox’s capabilities is given in the [xDDx User Manual](https://github.com/pavrosni/xDDx/releases/download/v.1.0.0-alpha/xDDx_user_manual.pdf) and the xDDx publication:
 
 > P. B. Rosnitskiy, O. A. Sapozhnikov, V. A. Khokhlova, W. Kreider, S. A. Tsysar, G. P. L. Thomas, K. Contreras, and T. D. Khokhlova, “xDDx: a Numerical Toolbox for Ultrasound Transducer Characterization and Design with Acoustic Holography,” _IEEE Trans. Ultrason., Ferroelectr., Freq. Control_ (Early Access), 2025.
 
