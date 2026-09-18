@@ -1,0 +1,69 @@
+function show_setup_error_window(errorMessage, MaterialMatrix, ixTarget, iyTarget, izTarget, izBoundaryCondition, aperture, radiusOfCurvature, radialReserveX, radialReserveY, xFieldBegin, xFieldEnd, yFieldBegin, yFieldEnd, zFieldBegin, zFieldEnd)
+%SHOW_SETUP_ERROR_WINDOW Show setup sketch (without simulation box) and error message.
+%
+% Displays the same yz/xz sketches as validate_simulation_setup_window but
+% without the simulation box (blue line). Used to illustrate setup errors
+% before simulation model generation. Shows transducer, boundary condition,
+% and output field region so the user can see the invalid configuration.
+% Boundary condition transverse extent matches generate_simulation_model.
+% No simulation grid vectors are required (uses medium extent for view).
+%
+% errorMessage (char/string): message describing the setup error.
+% radialReserveX, radialReserveY: reserve factors for the boundary transverse sizes.
+% Other arguments: same as validate_simulation_setup_window (except no grid vecs).
+
+fig = figure( ...
+    'Name', 'Simulation setup error', ...
+    'NumberTitle', 'off', ...
+    'MenuBar', 'none', ...
+    'ToolBar', 'figure', ...
+    'Units', 'normalized', ...
+    'Position', [0.15 0.15 0.7 0.7], ...
+    'Color', 'w', ...
+    'CloseRequestFcn', @onClose);
+
+% Axes below the error strip at top
+ax1 = axes('Parent', fig, 'Units', 'normalized', 'Position', [0.08 0.22 0.38 0.68]);
+ax2 = axes('Parent', fig, 'Units', 'normalized', 'Position', [0.56 0.22 0.38 0.68]);
+
+% No simulation grid yet; use the reserves for the boundary extent and omit the simulation box.
+plot_simulation_setup_sketch(ax1, 'yz', MaterialMatrix, ixTarget, iyTarget, izTarget, izBoundaryCondition, ...
+    aperture, radiusOfCurvature, xFieldBegin, xFieldEnd, yFieldBegin, yFieldEnd, zFieldBegin, zFieldEnd, ...
+    [], [], [], false, radialReserveX, radialReserveY, true, true);
+plot_simulation_setup_sketch(ax2, 'xz', MaterialMatrix, ixTarget, iyTarget, izTarget, izBoundaryCondition, ...
+    aperture, radiusOfCurvature, xFieldBegin, xFieldEnd, yFieldBegin, yFieldEnd, zFieldBegin, zFieldEnd, ...
+    [], [], [], false, radialReserveX, radialReserveY, false);
+
+% Error message at top of window (no Proceed button)
+msgFull = sprintf('Setup error: %s\nStop and reconfigure the simulation parameters.', errorMessage);
+uicontrol('Parent', fig, 'Style', 'text', 'Units', 'normalized', ...
+    'Position', [0.25 0.93 0.5 0.06], ...
+    'String', msgFull, ...
+    'HorizontalAlignment', 'center', ...
+    'BackgroundColor', [1 0.95 0.9], ...
+    'FontWeight', 'bold', ...
+    'FontSize', 10);
+
+uicontrol('Parent', fig, 'Style', 'pushbutton', 'Units', 'normalized', ...
+    'Position', [0.77 0.935 0.10 0.045], ...
+    'String', 'Close', 'FontWeight', 'bold', ...
+    'Callback', @onClose);
+
+drawnow;
+figure(fig);
+
+try
+    uiwait(fig);
+catch
+    if isgraphics(fig, 'figure')
+        delete(fig);
+    end
+end
+
+    function onClose(~, ~)
+        if isgraphics(fig, 'figure')
+            uiresume(fig);
+            delete(fig);
+        end
+    end
+end

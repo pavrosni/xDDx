@@ -66,7 +66,7 @@ switch regime
         end
         
     case 3 % 3 Forwardpropagation: V on a sphere --> P at an arbitrary set of points
-        if max(SourceParameters.xGrid(:))^2 + max(SourceParameters.yGrid(:))^2 > radiusOfCurvature^2
+        if max(SourceParameters.xGrid(:).^2+SourceParameters.yGrid(:).^2) > radiusOfCurvature^2
            error(errorMessages.sourceCurvature); 
         end
         
@@ -96,7 +96,7 @@ switch regime
         end
         
     case 6 % 6 Backpropagation: V on a sphere --> P on a planes
-        if max(FieldParameters.xGrid(:))^2+max(FieldParameters.yGrid(:))^2 > radiusOfCurvature^2
+        if max(FieldParameters.xGrid(:).^2+FieldParameters.yGrid(:).^2) > radiusOfCurvature^2
            error(errorMessages.fieldCurvature); 
         end
         

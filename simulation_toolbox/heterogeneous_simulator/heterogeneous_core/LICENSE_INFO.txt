@@ -1,0 +1,78 @@
+Recommended k-Wave core
+=======================
+
+The recommended core for the xDDx heterogeneous simulator is the forked,
+memory-saving k-Wave implementation available at:
+https://github.com/pavrosni/k-wave
+
+Fork modifications Copyright (C) 2026 Pavel Rosnitskiy.
+
+This fork provides memory-saving support for single-frequency simulations.
+Upstream k-Wave project: https://www.k-wave.org/
+
+Copyright and license
+=====================
+
+The bundled k-Wave documentation credits:
+Copyright (C) 2009-2025 Bradley Treeby, Ben Cox, and Jiri Jaros.
+See individual source files for the full list of authors, copyright holders,
+and applicable notices. Preserve all upstream and fork-specific notices.
+
+k-Wave is free software: you may redistribute and/or modify it under the
+GNU Lesser General Public License as published by the Free Software
+Foundation, version 3, or (at your option) any later version, as stated in
+the bundled source files. This notice does not change the license grants
+in individual files or the licenses of separate third-party components.
+
+The simulator uses k-Wave; the library and its use are covered by the LGPL.
+LGPL version 3 incorporates GPL version 3 with additional permissions.
+The full license texts accompany this notice at these relative paths:
+
+    k-Wave/license/lgpl.txt
+    k-Wave/license/gpl.txt
+
+Official copies:
+https://www.gnu.org/licenses/lgpl-3.0.html
+https://www.gnu.org/licenses/gpl-3.0.html
+
+Warranty and liability
+======================
+
+k-Wave is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. The warranty exclusions and limitations of
+liability apply to the extent permitted by applicable law; see GPL
+sections 15-17 in the accompanying license.
+
+Redistribution
+==============
+
+When redistributing the library or a modified version, retain copyright,
+license, and warranty notices and include both full license texts. Mark
+modified versions prominently with the fact of modification and relevant
+dates, and comply with the applicable license terms for the covered code.
+
+When distributing binaries, provide the complete Corresponding Source for
+the version distributed, including modifications and required build scripts,
+through a method permitted by GPL section 6. A link to a repository alone
+does not establish that the matching source is available or satisfy every
+permitted distribution method.
+
+If distributing a Combined Work, comply with LGPL section 4: give prominent
+notice of k-Wave use and its LGPL coverage, include both licenses, and
+include the library copyright and license references in any copyright
+notices displayed during execution. Allow modification of the library
+portions and reverse engineering for debugging those modifications.
+Provide the materials and permissions needed to recombine or relink with
+a modified library, or use a suitable shared-library mechanism as defined
+by the license. Provide Installation Information where required.
+
+LGPL sections 2, 3, and 5 contain additional conditions for certain library
+modifications, incorporated header material, and combined libraries.
+Independent applications using the library need not automatically adopt
+the LGPL, but applicable conditions for Combined Works still apply.
+Separately licensed dependencies remain subject to their own terms.
+
+This file is an informational notice, not a replacement for the full
+licenses or a certification of distribution compliance. The accompanying
+license texts and applicable source-file notices govern.

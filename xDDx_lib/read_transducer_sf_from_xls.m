@@ -2,11 +2,12 @@
 
 function TransducerSf = read_transducer_sf_from_xls(filePath)
 
-sheetNames = sheetnames(filePath);
+% Use the spreadsheet APIs available in MATLAB R2016b.
+[~, sheetNames] = xlsfinfo(filePath);
 TransducerSf = [];
 
 % Process scalars
-scalarData = readcell(filePath, 'Sheet', sheetNames{2});
+[~, ~, scalarData] = xlsread(filePath, 2, '', 'basic');
 for i = 1:size(scalarData, 1)
     fieldName = scalarData{i, 1};
     fieldValue = scalarData{i, 2};
@@ -29,7 +30,7 @@ end
 % Process x-, y-, z-grids, amplitude, and phase
 for sheetIdx = 3:7
     sheetName = sheetNames{sheetIdx};
-    matrixData = readmatrix(filePath, 'Sheet', sheetName);
+    matrixData = read_numeric_xls_sheet(filePath, sheetIdx);
 
 
     if ~isvarname(sheetName)

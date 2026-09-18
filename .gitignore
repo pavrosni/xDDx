@@ -1,0 +1,71 @@
+# MATLAB data and generated results
+*.mat
+*.bin
+*.fig
+*.asv
+*.m~
+*.slxc
+*.mex*
+*.mlappinstall
+*.mltbx
+*.autosave
+slprj/
+codegen/
+
+# Generated videos and scientific data containers
+*.avi
+*.mp4
+*.h5
+*.hdf5
+
+# Compiled programs and third-party binary bundles
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+*.exp
+*.tar
+*.zip
+*.7z
+
+# C/C++/CUDA and Visual Studio build artifacts
+*.obj
+*.o
+*.iobj
+*.ipdb
+*.pdb
+*.ilk
+*.idb
+*.recipe
+*.tlog
+*.lastbuildstate
+*.vcxproj.FileListAbsolute.txt
+*.deps
+*.cache
+*.log
+.vs/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+
+# Editor and operating-system metadata
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+~$*

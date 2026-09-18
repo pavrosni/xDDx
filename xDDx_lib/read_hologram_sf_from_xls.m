@@ -2,12 +2,13 @@
 
 function [Geometry, HologramSf, Medium] = read_hologram_sf_from_xls(filePath)
 
-sheetNames = sheetnames(filePath);
+% Use the spreadsheet APIs available in MATLAB R2016b.
+[~, sheetNames] = xlsfinfo(filePath);
 
 % Process Geometry
 sheetIdx = 2;
 Geometry = [];
-scalarData = readcell(filePath, 'Sheet', sheetNames{sheetIdx});
+[~, ~, scalarData] = xlsread(filePath, sheetIdx, '', 'basic');
 for i = 1:size(scalarData, 1)
     fieldName = scalarData{i, 1};
     fieldValue = scalarData{i, 2};
@@ -33,7 +34,7 @@ end
 % Process hologram scalars
 sheetIdx = 3;
 HologramSf = [];
-scalarData = readcell(filePath, 'Sheet', sheetNames{sheetIdx});
+[~, ~, scalarData] = xlsread(filePath, sheetIdx, '', 'basic');
 for i = 1:size(scalarData, 1)
     fieldName = scalarData{i, 1};
     fieldValue = scalarData{i, 2};
@@ -53,7 +54,7 @@ end
 % Process x-, y-, z-grids, amplitude, and phase
 for sheetIdx = 4:7
     sheetName = sheetNames{sheetIdx};
-    matrixData = readmatrix(filePath, 'Sheet', sheetName);
+    matrixData = read_numeric_xls_sheet(filePath, sheetIdx);
 
 
     if ~isvarname(sheetName)
@@ -84,7 +85,7 @@ end
 % Process hologram scalars
 sheetIdx = 8;
 Medium = [];
-scalarData = readcell(filePath, 'Sheet', sheetNames{sheetIdx});
+[~, ~, scalarData] = xlsread(filePath, sheetIdx, '', 'basic');
 for i = 1:size(scalarData, 1)
     fieldName = scalarData{i, 1};
     fieldValue = scalarData{i, 2};

@@ -52,6 +52,8 @@ end
     yFieldMin:dyFieldCoarse:yFieldMax,...
     zFieldMin:dzFieldCoarse:zFieldMax);
 
+check_auto_alignment_grid(xField3D, yField3D, zField3D);
+
 %"First Iteration" coarse-grid focal lobe simulation
 SourceParameters.xGrid = xHolo;
 SourceParameters.yGrid = yHolo;
@@ -98,6 +100,8 @@ end
     yFieldMin:dyField:yFieldMax,...
     zFieldMin:dzField:zFieldMax);
 
+check_auto_alignment_grid(xField3D, yField3D, zField3D);
+
 %"Second Iteration" fine-grid focal lobe simulation
 SourceParameters.xGrid = xHolo;
 SourceParameters.yGrid = yHolo;
@@ -126,4 +130,10 @@ zField3D = zField3D(:,:,iz1:iz2);
 layersToProcess3D = 1:size(pOut3D,3);
 [xMaxMechCoord, yMaxMechCoord, zMaxMechCoord, directionVectorMechCoord, RotationLine] = hologram_rotation_vector(xField3D, yField3D, zField3D, pOut3D, layersToProcess3D);
 
+end
+
+function check_auto_alignment_grid(xField3D, yField3D, zField3D)
+if isempty(xField3D) || isempty(yField3D) || isempty(zField3D)
+    error('The focal lobe was not detected, so the simulation grid (xField3D, yField3D, zField3D) is empty. Check the input parameters or try running without auto alignment.');
+end
 end
