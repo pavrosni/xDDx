@@ -1,6 +1,6 @@
 # xDDx: Ultrasound Simulation and Acoustic Holography
 
-For a quick start, all toolbox files are stored in xDDx.zip, available on the releases page in the Assets drop-down list below the release notes.
+For a quick start, all toolbox files are stored in [xDDx.zip](https://github.com/pavrosni/xDDx/releases/download/v.1.1.0-alpha/xDDx.zip), available on the releases page in the Assets drop-down list below the release notes.
 
 xDDx is a numerical toolbox for ultrasound field simulation, transducer characterization, and acoustic holography. Its main entry point is the **heterogeneous simulator**, which combines xDDx source projection with a new, memory-saving integrated [k-Wave solver](#k-wave-license). The toolbox also provides acoustic holography and homogeneous-medium simulation tools.
 
@@ -104,8 +104,8 @@ Start with these two examples for an overview of the interface, inputs, and outp
 
 ## Documentation and Help
 
-- **Heterogeneous simulation:** read the comments in [xDDx_simulator.m](simulation_toolbox/heterogeneous_simulator/xDDx_simulator.m) and consult the [xDDx User Manual](https://github.com/pavrosni/xDDx/releases/download/v.1.0.0-alpha/xDDx_user_manual.pdf). For additional guidance on inputs, geometry checks, validation, and saving results, see the optional [simulation guide](docs/simulation-guide.md).
-- **Acoustic holography and homogeneous simulation:** see the [xDDx User Manual](https://github.com/pavrosni/xDDx/releases/download/v.1.0.0-alpha/xDDx_user_manual.pdf), also available in the release Assets and toolbox archive, for detailed workflows and capabilities.
+- **Heterogeneous simulation:** read the comments in [xDDx_simulator.m](simulation_toolbox/heterogeneous_simulator/xDDx_simulator.m) and consult the [xDDx User Manual](https://github.com/pavrosni/xDDx/releases/download/v.1.1.0-alpha/xDDx_user_manual.pdf). For additional guidance on inputs, geometry checks, validation, and saving results, see the optional [simulation guide](docs/simulation-guide.md).
+- **Acoustic holography and homogeneous simulation:** see the [xDDx User Manual](https://github.com/pavrosni/xDDx/releases/download/v.1.1.0-alpha/xDDx_user_manual.pdf), also available in the release Assets and toolbox archive, for detailed workflows and capabilities.
 - **Linux and macOS setup:** see [Docker setup and update instructions](docs/DOCKER_SETUP.md).
 - **Development and verification:** see [Tests/README.md](Tests/README.md).
 
@@ -115,7 +115,7 @@ For questions about the manual or toolbox, or to report bugs, contact Pavel Rosn
 
 If you find the **xDDx Heterogeneous Simulator** useful for your work, please consider citing the following paper:
 
-> P. B. Rosnitskiy, O. A. Sapozhnikov, T. D. Khokhlova, and V. A. Khokhlova, "Memory-saving version of k-Wave toolbox for single-frequency simulations," _IEEE Trans. Ultrasonics_, 2026 (Early Access).
+> P. B. Rosnitskiy, O. A. Sapozhnikov, T. D. Khokhlova, and V. A. Khokhlova, "Memory-saving version of k-Wave toolbox for single-frequency simulations," _IEEE Transactions on Ultrasonics_, 2026 (Early Access).
 
 If you find **xDDx Acoustic Holography and Homogeneous Simulator** useful for your work, please consider citing the following paper:
 
@@ -129,4 +129,4 @@ Consult the toolbox distribution's `license.txt` for general license information
 
 ### k-Wave License
 
-The heterogeneous simulator includes a modified k-Wave solver maintained in the [pavrosni/k-wave fork](https://github.com/pavrosni/k-wave). k-Wave is distributed under the GNU Lesser General Public License (LGPL). See the bundled [k-Wave license information and recommended citations](simulation_toolbox/heterogeneous_simulator/heterogeneous_core/k-Wave/helpfiles/k-wave_license.html) for details.
+The heterogeneous simulator includes a modified k-Wave solver maintained in the [pavrosni/k-wave fork](https://github.com/pavrosni/k-wave). k-Wave is distributed under the GNU Lesser General Public License (LGPL). See the bundled [k-Wave license information and recommended citations](https://github.com/ucl-bug/k-wave/blob/main/LICENSE.txt) for details.
