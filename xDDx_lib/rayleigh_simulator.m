@@ -118,6 +118,7 @@ if ~ispc && ~ismac && ~isunix
     disp(errorMessages.noOS);
 end
 
+privateWorkDir = '';
 try
 
 spatialTolerance = eps('single');
@@ -162,7 +163,17 @@ end
 
 cppExeFolder = fullfile(fileparts(mfilename('fullpath')), 'rayleigh_cpp', simulationPostfix);
 
-libFolder = cd(tempdir);
+rayleighWorkDir = tempdir;
+if ismac
+    % Avoid rapidly reusing shared file paths between successive Docker runs.
+    rayleighWorkDir = tempname(tempdir);
+    [created, message] = mkdir(rayleighWorkDir);
+    if ~created
+        error('xDDx:TempDirectory', 'Cannot create %s: %s', rayleighWorkDir, message);
+    end
+    privateWorkDir = rayleighWorkDir;
+end
+libFolder = cd(rayleighWorkDir);
 
 write_matrix_bin(BinFileNames.vectorParam, vecInputParam);
 
@@ -210,7 +221,7 @@ if useDocker
     selectedCudaVersion = get_cuda_version_from_image_name(imageName);
     fullImage = [dockerConfig.dockerUsername '/' imageName];
     runImage = ensure_docker_image_ready(fullImage, imageName, dockerConfig);
-    tempDir = tempdir;
+    tempDir = rayleighWorkDir;
     if tempDir(end) == filesep
         tempDir = tempDir(1:end-1);
     end
@@ -247,7 +258,7 @@ else
     end
 end
 
-cd(tempdir);
+cd(rayleighWorkDir);
 
 testReOutput = fopen(BinFileNames.reOutput);
 testImOutput = fopen(BinFileNames.imOutput);
@@ -275,20 +286,23 @@ if ~ismatrix(FieldParameters.xGrid)
     end
 end
 
-% Clean up temp files (only if present; Docker may remove or chown some on Linux)
-delete_if_exists(BinFileNames.xSource);
-delete_if_exists(BinFileNames.ySource);
-delete_if_exists(BinFileNames.zSource);
-delete_if_exists(BinFileNames.xField);
-delete_if_exists(BinFileNames.yField);
-delete_if_exists(BinFileNames.zField);
-delete_if_exists(BinFileNames.vectorParam);
-% On Linux/Mac with Docker, container creates/owns re_* and im_* as root; skip deleting (temp overwritten next run)
-if ~((ismac || isunix) && useDocker)
-    delete_if_exists(BinFileNames.reInput);
-    delete_if_exists(BinFileNames.imInput);
-    delete_if_exists(BinFileNames.reOutput);
-    delete_if_exists(BinFileNames.imOutput);
+% Mac files stay together until success so failures retain diagnostic inputs.
+if ~ismac
+    % Clean up temp files (Docker may remove or chown some on Linux).
+    delete_if_exists(BinFileNames.xSource);
+    delete_if_exists(BinFileNames.ySource);
+    delete_if_exists(BinFileNames.zSource);
+    delete_if_exists(BinFileNames.xField);
+    delete_if_exists(BinFileNames.yField);
+    delete_if_exists(BinFileNames.zField);
+    delete_if_exists(BinFileNames.vectorParam);
+    % Linux Docker files can be root-owned; overwrite these on the next run.
+    if ~(isunix && useDocker)
+        delete_if_exists(BinFileNames.reInput);
+        delete_if_exists(BinFileNames.imInput);
+        delete_if_exists(BinFileNames.reOutput);
+        delete_if_exists(BinFileNames.imOutput);
+    end
 end
 
 cd(libFolder);
@@ -301,12 +315,30 @@ if should_save_auto_selection(autoDeviceSelection, outputField)
         'SaveSelection', true);
 end
 
+if ~isempty(privateWorkDir)
+    % Remove only this invocation's directory after leaving it and reading outputs.
+    try
+        [removed, cleanupMessage] = rmdir(privateWorkDir, 's');
+    catch cleanupError
+        removed = false;
+        cleanupMessage = cleanupError.message;
+    end
+    if ~removed
+        warning('xDDx:TempCleanup', ...
+            'Simulation completed, but temporary files remain in %s: %s', ...
+            privateWorkDir, cleanupMessage);
+    end
+end
+
 catch ME
     if exist('libFolder', 'var') == 1
         try
             cd(libFolder);
         catch
         end
+    end
+    if ~isempty(privateWorkDir) && exist(privateWorkDir, 'dir') == 7
+        fprintf(2, 'Rayleigh diagnostic files retained in: %s\n', privateWorkDir);
     end
     outputField = handle_auto_simulation_failure(ME, autoDeviceSelection, ...
         expSign, frequencyParameter, regime, isTransient, ...
