@@ -8,7 +8,9 @@ Install [Docker Desktop](https://docs.docker.com/desktop/setup/install/mac-insta
 
 ## Linux
 
-Follow the [Docker Engine installation guide](https://docs.docker.com/engine/install/) for your distribution, start the Docker service, and complete the [non-root setup](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) so your user can run Docker without `sudo`. Log out and back in after changing group membership.
+Follow the [Docker Engine installation guide](https://docs.docker.com/engine/install/) for your distribution, start the Docker service, and complete the [non-root setup](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) so your user can run Docker without `sudo`. Log out and back in after changing group membership. 
+
+**Linux GPU support:** install an NVIDIA driver and [configure the NVIDIA Container Toolkit for Docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). Until GPU access is configured, set both `simulatorInputs.xDDxCalculationFlag` and `simulatorInputs.kWaveCalculationFlag` to `'cpu'`. macOS uses the CPU backend.
 
 ## Check and run on either platform
 
@@ -16,8 +18,6 @@ Follow the [Docker Engine installation guide](https://docs.docker.com/engine/ins
 2. **Run an example of your choice**, such as [xDDx_simulator.m](../simulation_toolbox/heterogeneous_simulator/xDDx_simulator.m) or [quick_start_spherical.m](../holography_toolbox/quick_start_spherical.m). Before running it, navigate to the corresponding folder in MATLAB. Stay connected to the internet during the first run: the toolbox automatically downloads the required xDDx and k-Wave solver images and reuses them on later runs. Keep the default Docker image settings.
 
 If a Docker container fails to start, see the official troubleshooting guides for [Docker Desktop on macOS](https://docs.docker.com/desktop/troubleshoot-and-support/troubleshoot/) or [Docker Engine on Linux](https://docs.docker.com/engine/daemon/troubleshoot/).
-
-**Optional Linux GPU support:** install an NVIDIA driver and [configure the NVIDIA Container Toolkit for Docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). Until GPU access is configured, set both `simulatorInputs.xDDxCalculationFlag` and `simulatorInputs.kWaveCalculationFlag` to `'cpu'`. macOS uses the CPU backend.
 
 ## Control Docker updates
 
