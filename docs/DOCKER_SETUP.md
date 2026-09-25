@@ -14,7 +14,7 @@ Follow the [Docker Engine installation guide](https://docs.docker.com/engine/ins
 
 ## Check and run on either platform
 
-1. **Restart MATLAB and check access.** On macOS, ensure that Docker Desktop is running.
+1. **Restart MATLAB.** On macOS, ensure that Docker Desktop is running.
 2. **Run an example of your choice**, such as [xDDx_simulator.m](../simulation_toolbox/heterogeneous_simulator/xDDx_simulator.m) or [quick_start_spherical.m](../holography_toolbox/quick_start_spherical.m). Before running it, navigate to the corresponding folder in MATLAB. Stay connected to the internet during the first run: the toolbox automatically downloads the required xDDx and k-Wave solver images and reuses them on later runs. Keep the default Docker image settings.
 
 If a Docker container fails to start, see the official troubleshooting guides for [Docker Desktop on macOS](https://docs.docker.com/desktop/troubleshoot-and-support/troubleshoot/) or [Docker Engine on Linux](https://docs.docker.com/engine/daemon/troubleshoot/).

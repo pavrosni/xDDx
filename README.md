@@ -1,6 +1,6 @@
 # xDDx: Ultrasound Simulation and Acoustic Holography
 
-For a quick start, all toolbox files are stored in [xDDx.zip](https://github.com/pavrosni/xDDx/releases/download/v.1.1.0-alpha/xDDx.zip), available on the releases page in the Assets drop-down list below the release notes.
+For a quick start, all toolbox files are included in [`xDDx.zip`](https://github.com/pavrosni/xDDx/releases/download/v.1.1.0-alpha/xDDx.zip), which can also be found in the Assets drop-down section below the release notes.
 
 xDDx is a numerical toolbox for ultrasound field simulation, transducer characterization, and acoustic holography. Its main entry point is the **heterogeneous simulator**, which combines xDDx source projection with a new, memory-saving integrated [k-Wave solver](#k-wave-license). The toolbox also provides acoustic holography and homogeneous-medium simulation tools.
 
@@ -115,7 +115,7 @@ For questions about the manual or toolbox, or to report bugs, contact Pavel Rosn
 
 If you find the **xDDx Heterogeneous Simulator** useful for your work, please consider citing the following paper:
 
-> P. B. Rosnitskiy, O. A. Sapozhnikov, T. D. Khokhlova, and V. A. Khokhlova, "Memory-saving version of k-Wave toolbox for single-frequency simulations," _IEEE Transactions on Ultrasonics_, 2026 (Early Access).
+> P. B. Rosnitskiy, O. A. Sapozhnikov, T. D. Khokhlova, and V. A. Khokhlova, "Memory-saving version of k-Wave toolbox for single-frequency simulations," _IEEE Transactions on Ultrasonics_, 2026 (Early Access). DOI: [10.1109/TUSON.2026.3736315](https://doi.org/10.1109/TUSON.2026.3736315).
 
 If you find **xDDx Acoustic Holography and Homogeneous Simulator** useful for your work, please consider citing the following paper:
 
@@ -123,7 +123,7 @@ If you find **xDDx Acoustic Holography and Homogeneous Simulator** useful for yo
 
 and the acoustic holography paper:
 
-> O. A. Sapozhnikov, S. A. Tsysar, V. A. Khokhlova, and W. Kreider, "Acoustic holography as a metrological tool for characterizing medical ultrasound sources and fields," _The Journal of the Acoustical Society of America_, vol. 138, no. 3. Acoustical Society of America (ASA), pp. 1515–1532, Sep. 01, 2015.
+> O. A. Sapozhnikov, S. A. Tsysar, V. A. Khokhlova, and W. Kreider, "Acoustic holography as a metrological tool for characterizing medical ultrasound sources and fields," _The Journal of the Acoustical Society of America_, vol. 138, no. 3. Acoustical Society of America (ASA), pp. 1515–1532, Sep. 01, 2015. DOI: [10.1121/1.4928396](https://doi.org/10.1121/1.4928396).
 
 Consult the toolbox distribution's `license.txt` for general license information.
 
